@@ -15,6 +15,44 @@ _Note: Gaps between patch versions are faulty, broken or test releases._
 
 See the [Babel Changelog](https://github.com/babel/babel/blob/master/CHANGELOG.md) for the pre-6.8.0 version Changelog.
 
+## 6.14.0 (2016-11-13)
+
+### :eyeglasses: Spec Compliancy
+
+ * Optional names for function types and object type indexers ([#197](https://github.com/babel/babylon/pull/197)) (Gabe Levi)
+
+ So where you used to have to write
+
+ ```js
+ type A = (x: string, y: boolean) => number;
+ type B = (z: string) => number;
+ type C = { [key: string]: number };
+ ```
+
+ you can now write (with flow 0.34.0)
+
+ ```js
+ type A = (string, boolean) => number;
+ type B = string => number;
+ type C = { [string]: number };
+ ```
+
+ * Throw error for reserved words enum and await ([#195](https://github.com/babel/babylon/pull/195)) (Kai Cataldo)
+ * Parse flow nested array type annotations like number[][] ([#219](https://github.com/babel/babylon/pull/219)) (Bernhard Häussner)
+ 
+ Supports these form now of specifying array types:
+ ```js
+ var a: number[][][][];
+ var b: string[][];
+ ```
+
+### :house: Internal
+
+ * Count Babel tests towards Babylon code coverage ([#182](https://github.com/babel/babylon/pull/182)) (Moti Zilberman)
+ * Fix strange line endings ([#214](https://github.com/babel/babylon/pull/214)) (Thomas Grainger)
+ * Add node 7 (Daniel Tschinder)
+ * chore(package): update flow-bin to version 0.34.0 ([#204](https://github.com/babel/babylon/pull/204)) (Greenkeeper)
+
 ## v6.13.1 (2016-10-26)
 
 ### :nail_care: Polish
